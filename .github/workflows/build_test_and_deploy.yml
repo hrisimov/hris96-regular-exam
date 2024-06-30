@@ -1,0 +1,20 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_unit_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v4
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run unit tests
+      run: npm run test:unit
+    - name: Display my SoftUni username
+      run: echo "hris96"
